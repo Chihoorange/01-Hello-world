@@ -18,26 +18,33 @@ myOtherBox.addEventListener('mouseenter', function(){
 
 myOtherBox.addEventListener('mouseleave', function(){
 	rotationSpeed = 0.001;
+	shrink();
 	console.log('left');
 });
 
-
+myOtherBox.addEventListener('click', function(){ // uses a fuse
+	grow();
+	console.log('grew');
+});
 
 
 /*
  * click-events can use a fuse (default on mobile). So the event only fires, if the cursor is on the object for a specified time. 
  */
 
-var growspeed = 1.2;
+// var growspeed = 1.5;
 
 function grow(){
-	myOtherBox.object3D.scale.x *= growspeed;
-	myOtherBox.object3D.scale.y *= growspeed;
-	myOtherBox.object3D.scale.z *= growspeed;
+	myOtherBox.object3D.scale.x = 2;
+	myOtherBox.object3D.scale.y = 2;
+	myOtherBox.object3D.scale.z = 2;
 	//console.log(myOtherBox.object3D.scale);
 }
 
-myOtherBox.addEventListener('click', function(){ // uses a fuse
-	grow();
-	console.log('grew');
-});
+function shrink(){
+	myOtherBox.object3D.scale.x = 1;
+	myOtherBox.object3D.scale.y = 1;
+	myOtherBox.object3D.scale.z = 1;
+	//console.log(myOtherBox.object3D.scale);
+}
+
